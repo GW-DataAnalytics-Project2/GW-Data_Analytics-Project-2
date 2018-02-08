@@ -1,11 +1,13 @@
 Airbnb Listings Analysis in Washington DC
 
 Our project will analyze data of Airbnb listings in Washington DC in May 2017.  We will create a dashboard to show variable factor of listings such as price, review, availability and crime in different neighborhoods and estimate their relationship.
+
 Following is the data origin:
 http://insideairbnb.com : listings.csv;  neighbourhoods.csv, 
 http://opendata.dc.gov/datasets :  Crime_Incidents_in_2017.csv; Neighborhood_Clusters.csv
 
 Step 1 - Flask API
+
 1. Clean up the CSV data:  
 data_engineering_airbnb.ipynb;
 2. Create the SQLite database using the cleaned CSV files:         
@@ -43,6 +45,7 @@ Finally we outputted the data as JSON in the format specified in the routes belo
 
 
 Step 2 - Plotly.js
+
 Use Plotly.js to build interactive charts for our dashboard.
 •	Use the route /names to populate a dropdown select element with the list of neighborhood names.
 
@@ -50,7 +53,6 @@ Display the neighborhood crime from the route /crimedata/< neighborhood >
 •	Display each key/value pair from the crime JSON object on the page
 •	Update the crime rate for each neighborhood that is selected
 Display the average price , reviews and availabilities from the route /entirehome/< neighborhood >; /privateroom/< neighborhood >; /sharedroom/< neighborhood >
-
 
 •	Display each key/value pair from the “three room type” JSON object on the page
 •	Update the price , reviews and availabilities for each neighborhood that is selected
@@ -73,8 +75,7 @@ Create a PIE chart that uses data from routes /listprice/<neighbourhood>  to dis
 •	Use Plotly.restyle to update the chart whenever a new sample is selected
 
 Create a Gauge chart that uses data from routes /crimerate/<neighbourhood>  to display the crime rate in each neighbourhood. 
-
+  
 Step 3 - Visualizing Data with D3 and Leaflet
-
 
 
