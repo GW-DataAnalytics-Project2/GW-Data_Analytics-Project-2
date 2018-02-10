@@ -11,10 +11,10 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
                 <div class="col-md-12 jumbotron text-center">
-                    <h2><strong>Airbnb Datasets Analysis in Washington, D.C.</strong></h2>
+                    <h2><strong>Airbnb Datasets Analysis in Washington, D.C.<strong></h2>
                     <p>Use the interactive charts below to explore the Airbnb and Crime datasets</p>
                 </div>
         </div>
@@ -48,24 +48,48 @@
             </div>
 
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="col-md-6">
-                <div id="pie"></div>
-            </div>
-            <div class="col-md-6">
-                <div id="gauge"></div>
+   
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div id="pie"></div>
+                </div>
+                <div class="col-md-6">
+                    <div id="gauge"></div>
+                </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-12", style="display:inline-block",>
+                <div class="topleft" style="text-align:center; float:left;">
+                    <div id="bubble"></div>
+                </div>
+            </div>     
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 jumbotron text-center">
+                <h2><strong>Airbnb Listing vs Number of Crimes in Washington, D.C. Neighborhood</strong></h2>
+                    
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="scatter1"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="scatter2"></div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
-    <div class="row">
-        <div class="col-md-12", style="display:inline-block",>
-             <div class="topleft" style="text-align:center; float:left;">
-                <div id="bubble"></div>
-             </div>
-        </div>     
-    </div>
+
+    
 
 
     <script>
@@ -123,7 +147,6 @@
         }
 
 
-
         function buildCharts(listingData) {
 
             // Loop through listprice data and find the Airbnb list host information
@@ -132,17 +155,15 @@
             // Build Bubble Chart
             var bubbleLayout = {
                 margin: {  
-                    t: 0,
-                  
+                    t: 50,    
                 },
                 hovermode: 'closest',
-                title: '<b>Airbnb Rental Price vs Airbnb ID<b>',
+                title: '<b>Airbnb Rental Price per Airbnb ID<b>',
                 xaxis: { title: 'Airbnb ID' },
                 yaxis: {title: "Log Airbnb Rental Price ($)", type: 'log', autorange: true},
                 height: 800,
-                width: 1400,
+                width: 1300,
             };
-
 
 
             var bubbleData = [{
@@ -194,9 +215,9 @@
             var labels = listingData[0]['room_type'];
 
             // Return the listing Description for each airbnb ID in the dataset
-            //var labels = 'Host ID: listingData[0]['host_id']\
-                        //<br>Room Type: listingData[0]['room_type']\
-                       // <br>Minimum Nights: listingData[0]['minimum_nights'] %s nights\
+            //var labels = 'Host ID: listingData[0]['host_id']+\
+                        //<br>Room Type: listingData[0]['room_type']+\
+                       // <br>Minimum Nights: listingData[0]['minimum_nights'] %s nights+\
                        // <br>Availability_365: listingData[0]['availability_365'] %s days]';
     
 
